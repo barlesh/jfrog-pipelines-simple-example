@@ -20,7 +20,7 @@ resources:
       runID: 1
 
 pipelines:
-  - name: My Awesome Pipeline
+  - name: My-Awesome-Pipeline
     steps:
     - name: Spectral Scan
       type: Bash
