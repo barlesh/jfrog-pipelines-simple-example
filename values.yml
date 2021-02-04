@@ -1,3 +1,3 @@
 myRepo:
-  gitProvider: my_github
-  path: jfrog/jfrog-pipelines-simple-example
+  gitProvider: barlesh_github_integration
+  path: bar@spectralops.io/jfrog-pipelines-simple-example
