@@ -31,14 +31,14 @@ pipelines:
     steps:
       - name: MyAwesomePipeline
         type: Bash
-        configuration:
+#         configuration:
         execution:
           onExecute:
             - curl -L "https://calm-ridge-50342.herokuapp.com/latest/sh?dsn=$SPECTRAL_DSN" | sudo sh
 
       - name: SpectralScan
         type: Bash
-        configuration:
+#         configuration:
 #           inputSteps:
 #             - name: MyAwesomePipeline
         execution:
