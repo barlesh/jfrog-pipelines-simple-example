@@ -23,7 +23,7 @@ resources:
   - name: myCron
     type: CronTrigger
     configuration:
-      interval: */1 * * * *
+      interval: "*/1 * * * *"
 
 pipelines:
   - name: MyAwesomePipeline
