@@ -20,9 +20,9 @@ resources:
       runID: 1
 
 pipelines:
-  - name: My-Awesome-Pipeline
+  - name: MyAwesomePipeline
     steps:
-    - name: Spectral-Scan
+    - name: SpectralScan
       type: Bash
       execution:
         onExecute:
