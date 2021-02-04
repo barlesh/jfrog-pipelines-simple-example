@@ -27,7 +27,7 @@
     
 
 pipelines:
-  - name: my_first_pipeline
+  - name: SpectralProtection
     steps:
       - name: SpectralScan
         type: Bash
