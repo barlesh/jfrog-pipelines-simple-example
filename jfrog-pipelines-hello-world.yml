@@ -38,9 +38,9 @@ pipelines:
 
       - name: SpectralScan
         type: Bash
-#         configuration:
-#           inputSteps:
-#             - name: MyAwesomePipeline
+        configuration:
+          inputSteps:
+            - name: MyAwesomePipeline
         execution:
           onExecute:
             - spectral scan --dsn $SPECTRAL_DSN
