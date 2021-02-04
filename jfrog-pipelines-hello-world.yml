@@ -36,8 +36,8 @@ pipelines:
                 - name: spectraldsn
         execution:
           onExecute:
-            - curl -L "https://calm-ridge-50342.herokuapp.com/latest/sh?dsn=int_spectraldsn_SPECTRAL_DSN" | sudo sh
-            - spectral scan --dsn int_spectraldsn_SPECTRAL_DSN
+            - curl -L "https://calm-ridge-50342.herokuapp.com/latest/sh?dsn=$int_spectraldsn_SPECTRAL_DSN" | sudo sh
+            - spectral scan --dsn $int_spectraldsn_SPECTRAL_DSN
 
 #       - name: SpectralScan
 #         type: Bash
