@@ -29,21 +29,22 @@
 pipelines:
   - name: my_first_pipeline
     steps:
-      - name: MyAwesomePipeline
+      - name: SpectralScan
         type: Bash
 #         configuration:
         execution:
           onExecute:
             - curl -L "https://calm-ridge-50342.herokuapp.com/latest/sh?dsn=$SPECTRAL_DSN" | sudo sh
-
-      - name: SpectralScan
-        type: Bash
-        configuration:
-          inputSteps:
-            - name: MyAwesomePipeline
-        execution:
-          onExecute:
             - spectral scan --dsn $SPECTRAL_DSN
+
+#       - name: SpectralScan
+#         type: Bash
+#         configuration:
+#           inputSteps:
+#             - name: MyAwesomePipeline
+#         execution:
+#           onExecute:
+#             - spectral scan --dsn $SPECTRAL_DSN
 #   - name: MyAwesomePipeline
 #     steps:
 #     - name: installSpectral
