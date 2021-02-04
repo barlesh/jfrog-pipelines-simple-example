@@ -19,11 +19,12 @@
 #       commitSha: 1
 #       runID: 1
 
-resources:
-  - name: myCron
-    type: CronTrigger
-    configuration:
-      interval: "*/1 * * * *"
+# resources:
+#   - name: myCron
+#     type: CronTrigger
+#     configuration:
+#       interval: "*/1 * * * *"
+    
 
 pipelines:
   - name: MyAwesomePipeline
