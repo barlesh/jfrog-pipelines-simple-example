@@ -22,7 +22,7 @@ resources:
 pipelines:
   - name: My-Awesome-Pipeline
     steps:
-    - name: Spectral Scan
+    - name: Spectral-Scan
       type: Bash
       execution:
         onExecute:
