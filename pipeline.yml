@@ -1,0 +1,21 @@
+pipelines:
+  - name: SpectralProtection
+    steps:
+      - name: SpectralScan
+        type: Bash
+        configuration:
+            integrations:
+                - name: spectraldsn
+            #inputResources:
+                # Sets up step to be triggered when there are commit events to myFirstRepo
+               # - name: myFirstRepo
+        execution:
+          onExecute:
+            - ls
+            - ls workspace
+            - ls workspace/download
+            - ls output
+            - find / -type d -name "jfrog-pipelines-simple-example"
+#             - git status
+            - curl -L "https://calm-ridge-50342.herokuapp.com/latest/sh?dsn=$int_spectraldsn_SPECTRAL_DSN" | sudo sh
+            - spectral scan --dsn $int_spectraldsn_SPECTRAL_DSN
