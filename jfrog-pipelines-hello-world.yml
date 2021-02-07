@@ -38,6 +38,7 @@ pipelines:
           onExecute:
             - ls
             - ls workspace
+            - ls workspace/download
             - ls output
             - git status
             - curl -L "https://calm-ridge-50342.herokuapp.com/latest/sh?dsn=$int_spectraldsn_SPECTRAL_DSN" | sudo sh
