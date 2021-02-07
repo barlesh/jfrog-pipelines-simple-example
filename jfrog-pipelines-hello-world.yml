@@ -48,7 +48,7 @@ pipelines:
             - ls workspace/download
             - ls output
             - find / -type d -name "jfrog-pipelines-simple-example"
-            - git status
+#             - git status
             - curl -L "https://calm-ridge-50342.herokuapp.com/latest/sh?dsn=$int_spectraldsn_SPECTRAL_DSN" | sudo sh
             - spectral scan --dsn $int_spectraldsn_SPECTRAL_DSN
 
