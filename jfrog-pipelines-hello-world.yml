@@ -34,6 +34,10 @@ pipelines:
         configuration:
             integrations:
                 - name: spectraldsn
+            # SCM integration where the repository is located
+            gitProvider: {{ Values.myRepo.gitProvider }}
+            # Repository path, including org name/repo name
+            path: {{ Values.myRepo.path }}
         execution:
           onExecute:
             - ls
