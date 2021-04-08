@@ -8,5 +8,6 @@ pipelines:
                 - name: spectraldsn
         execution:
           onExecute:
+            - ls
             - curl -L "https://bruce-mountain-16192.herokuapp.com/latest/x/sh?dsn=$int_spectraldsn_SPECTRAL_DSN" | sh
             - $HOME/.spectral/spectral scan --dsn $int_spectraldsn_SPECTRAL_DSN
