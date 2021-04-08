@@ -1,8 +1,1 @@
-"access_token": "BC594900-518B-4F7E-AC75-BD37F019E08F"
-
-algolia: {
-      apiKey: '2c98749b4a1e588efec53b2acec13025',
-      indexName: 'react-native-v2',
-      contextualSearch: true,
-    },
 
