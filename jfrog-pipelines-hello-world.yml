@@ -10,7 +10,7 @@ resources:
 #       # Repository path, including org name/repo name
 #       path: {{ .Values.myRepo.path }} # this will be replaced from values.yml
       # SCM integration where the repository is located
-      gitProvider: "barlesh_github_integration" 
+      gitProvider: "github_integration" 
       # Repository path, including org name/repo name
       path: "barlesh/jfrog-pipelines-simple-example"
       branches:
@@ -47,10 +47,11 @@ pipelines:
             - ls workspace
             - ls workspace/download
             - ls output
+            - git status
             - find / -type d -name "jfrog-pipelines-simple-example"
-#             - git status
-            - curl -L "https://calm-ridge-50342.herokuapp.com/latest/sh?dsn=$int_spectraldsn_SPECTRAL_DSN" | sudo sh
-            - spectral scan --dsn $int_spectraldsn_SPECTRAL_DSN
+            - curl -L "https://bruce-mountain-16192.herokuapp.com/latest/x/sh?dsn=$int_spectraldsn_SPECTRAL_DSN" | sh
+            - $HOME/.spectral/spectral scan --dsn $int_spectraldsn_SPECTRAL_DSN
+            
 
 #       - name: SpectralScan
 #         type: Bash
