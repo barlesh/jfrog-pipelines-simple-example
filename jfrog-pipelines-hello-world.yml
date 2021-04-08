@@ -45,9 +45,8 @@ pipelines:
           onExecute:
             - pwd
             - ls
-            - ls workspace
-            - ls workspace/download
-            - ls output
+            - ls dependencyState/resources
+            - ls dependencyState/resources/myFirstRepo
 #             - git status
             - find / -type d -name "jfrog-pipelines-simple-example"
             - find / -name "configuration.yml"
