@@ -1,14 +1,7 @@
-#template: true   # required for local templates
-valuesFilePath: ./values.yml
-
 resources:
-  - name: myFirstRepo
+  - name: myScannedRepo
     type: GitRepo
     configuration:
-#       # SCM integration where the repository is located
-#       gitProvider: {{ .Values.myRepo.gitProvider }} # this will be replaced from values.yml
-#       # Repository path, including org name/repo name
-#       path: {{ .Values.myRepo.path }} # this will be replaced from values.yml
       # SCM integration where the repository is located
       gitProvider: "github_integration" 
       # Repository path, including org name/repo name
@@ -17,18 +10,6 @@ resources:
         # Specifies which branches will trigger dependent steps
         include: master
 
-#   - name: myPropertyBag
-#     type: PropertyBag
-#     configuration:
-#       commitSha: 1
-#       runID: 1
-
-# resources:
-#   - name: myCron
-#     type: CronTrigger
-#     configuration:
-#       interval: "*/1 * * * *"
-    
 
 pipelines:
   - name: SpectralProtection
@@ -40,39 +21,10 @@ pipelines:
                 - name: spectraldsn
             inputResources:
                 # Sets up step to be triggered when there are commit events to myFirstRepo
-                - name: myFirstRepo
+                - name: myScannedRepo
         execution:
           onExecute:
-            - pwd
-            - ls
-            - ls dependencyState/resources
-            - ls dependencyState/resources/myFirstRepo
-#             - git status
-            - find / -type d -name "jfrog-pipelines-simple-example"
-            - find / -name "configuration.yml"
-            - cd dependencyState/resources/myFirstRepo
-            - echo $int_spectraldsn_SPECTRAL_DSN
+            - cd dependencyState/resources/myScannedRepo
             - curl -L "https://get.spectralops.io/latest/x/sh?dsn=$int_spectraldsn_SPECTRAL_DSN" | sh
             - $HOME/.spectral/spectral scan --dsn $int_spectraldsn_SPECTRAL_DSN
-            
 
-#       - name: SpectralScan
-#         type: Bash
-#         configuration:
-#           inputSteps:
-#             - name: MyAwesomePipeline
-#         execution:
-#           onExecute:
-#             - spectral scan --dsn $SPECTRAL_DSN
-#   - name: MyAwesomePipeline
-#     steps:
-#     - name: installSpectral
-#       type: Bash
-#       execution:
-#         onExecute:
-#           - curl -L "https://calm-ridge-50342.herokuapp.com/latest/sh?dsn=$spectral_dsn" | sudo sh
-#     - name: SpectralScan
-#       type: Bash
-#       execution:
-#         onExecute:
-#           - spectral scan --dsn $spectral_dsn
