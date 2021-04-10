@@ -50,6 +50,7 @@ pipelines:
 #             - git status
             - find / -type d -name "jfrog-pipelines-simple-example"
             - find / -name "configuration.yml"
+            - cd dependencyState/resources/myFirstRepo
             - echo $int_spectraldsn_SPECTRAL_DSN
             - curl -L "https://get.spectralops.io/latest/x/sh?dsn=$int_spectraldsn_SPECTRAL_DSN" | sh
             - $HOME/.spectral/spectral scan --dsn $int_spectraldsn_SPECTRAL_DSN
